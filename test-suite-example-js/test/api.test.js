@@ -5,9 +5,10 @@ import request from "supertest";
 
 describe("callApi", () => {
 
-    it("should call the API", async () => {
+    test("should call the API", async () => {
         const response = await callApi("https://api.ipify.org?format=json");
-        expect(response).toHaveBeenCalledWith({ ip: '187.193.188.34' });
+        console.log(response);
+        expect(response).toBe({ ip: '187.193.188.34' });
     });
     
 });
