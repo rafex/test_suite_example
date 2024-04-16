@@ -1,3 +1,5 @@
+import {expect, jest, test, it} from '@jest/globals';
+
 import callApi from "../src/modules/callApi.mjs";
 import request from "supertest";
 
@@ -7,8 +9,9 @@ describe("callApi", () => {
 
     test("should call the API", async () => {
         const response = await callApi("https://api.ipify.org?format=json");
-        console.log(response);
-        expect(response).toBe({ ip: '187.193.188.34' });
+
+        expect(response.status).toBe(200);
+        expect(response.data).not.toBeNull();
     });
     
 });

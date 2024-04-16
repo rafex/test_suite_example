@@ -1,11 +1,13 @@
+import logMessage from './logger.mjs';
 import axios from 'axios';
 
 const callApi = async (url) => {
   try {
     const response = await axios.get(url);
-    console.log(response.data);
+    logMessage(response.data, 'debug');
+    return response;
   } catch (error) {
-    console.error(error);
+    logMessage(error, 'error');
   }
 };
 
