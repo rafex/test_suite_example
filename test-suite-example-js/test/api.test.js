@@ -7,7 +7,7 @@ import request from "supertest";
 
 describe("callApi", () => {
 
-    test("should call the API", async () => {
+    test("Satisfactory service call (200 response code)", async () => {
         const response = await callApi("https://api.ipify.org?format=json");
 
         expect(response.status).toBe(200);
